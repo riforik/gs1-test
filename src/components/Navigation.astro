@@ -1,0 +1,68 @@
+---
+import Card from '../components/Card.astro';
+---
+<nav class="nav" aria-label="G S 1 Canada">
+    <ul role="menubar" class="link-card-grid">
+        <Card
+            icon={{name: 'home', size: '24'}}
+            href="/"
+            title="Home"
+            ariaLabel="Go back to the home page"
+            body=""
+        />
+        <Card
+            icon={{name: 'barcode', size: '24'}}
+            href="/barcodes"
+            title="Barcodes"
+            ariaLabel="Get and learn more about barcodes"
+            body=""
+        />
+        <Card
+            icon={{name: 'standards', size: '24'}}
+            href="/standards"
+            title="Standards"
+            ariaLabel="G S 1 Canada standards"
+            body=""
+        />
+        <Card
+            icon={{name: 'industries', size: '24'}}
+            href="/industries"
+            title="Industries"
+            ariaLabel="G S 1 industry coverage"
+            body=""
+        />
+    </ul>
+</nav>
+
+<style>
+    .nav {
+        width: auto;
+        background-color: rgb(var(--gs1-light-gray));
+    }
+    .nav ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        padding: 12px 0;
+    }
+    .link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+    /* .nav .list-item {
+		list-style: none;
+        list-style-type: none;
+        width: 25%;
+        text-align: center;
+    } 
+    .nav .list-item a {
+        color: rgb(var(--gs1-primary));
+		text-decoration: none;
+    } 
+    .nav .list-item a:is(:hover,:focus) {
+        color: rgb(var(--gs1-secondary-dark));
+        font-weight: 500;
+    }  */
+</style>

@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const counter = 0;
+
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+	ariaLabel: string;
+	icon: {
+		name: string,
+		size: string
+	};
+}
+
+const { href, title, body, icon, ariaLabel } = Astro.props;
+
+---
+
+<li class="link-card">
+	<a href={href} aria-label={ariaLabel}>
+		<h2>
+			{title}
+			<span class="icon"><Icon {...icon}/></span>
+		</h2>
+		{body && <p>
+			{body}
+		</p>}
+	</a>
+</li>
+<script>
+	const cards = document.querySelectorAll(`.link-card`); // get card elements
+
+	// Card colour changer function
+	let colorChanger = (cards: any) => {
+		for (let i in cards) {
+			cards[i].style.background = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+		}
+	};
+	if (cards) {colorChanger(cards)}; // change card color if cards exist
+</script>
+<style>
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 1px;
+		background-color: rgba(var(--gs1-light-gray), 100);
+		background-color: rgba(var(), 100);
+		background-image: none;
+		background-size: 400%;
+		border-radius: 7px;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: calc(1.5rem - 1px);
+		border-radius: 8px;
+		color: black;
+		background-color: rgba(var(--gs1-light-gray), 100);
+		opacity: 0.8;
+	}
+	.link-card .icon {
+		position: relative;
+		top: 2px;
+	}
+	h2 {
+		margin: 0;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+	}
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-color: rgb(var(--gs1-secondary));
+	}
+	.link-card:is(:hover, :focus-within) h2 {
+		color: rgb(var(--gs1-primary));
+	}
+</style>

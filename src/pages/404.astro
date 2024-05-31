@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="Welcome to GS1">
+	<main>
+		<div class="hero-banner">
+			<h1>Page <span class="text-secondary">Not Found</span></h1>
+			<div class="description">
+				<p>We're sorry but that page does not exist.<br /></p>
+				<div class="link-container">
+					<a class="link" href="/" aria-label="Return to the home page"><Icon name="home" size={32}/></a>&nbsp;
+				</div>
+			</div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+		color: rgba(var(--gs1-tertiary), 100);
+	}
+	.text-secondary {
+		color: rgba(var(--gs1-secondary), 100);
+	}
+	.hero-banner {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--gs1-border), 100%);
+		background: rgba(var(--gs1-primary));
+		padding: 1.5rem;
+		border-radius: 4px;
+	}
+	.hero-banner .description {
+		text-align: center;
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--gs1-border), 50%);
+		background: rgba(var(--gs1-tertiary), 20%);
+		padding: 1rem;
+		border-radius: 4px;
+	}
+	.description strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	a.link {
+		text-decoration: none;
+		line-height: 1.4;
+		color: white;
+		transition: all 0.1s ease;
+	}
+	a.link:is(:hover) {
+		color: rgba(var(--gs1-secondary), 100%);
+	}
+</style>

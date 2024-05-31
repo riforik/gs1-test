@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="Welcome to GS1">
+	<main>
+		<div class="hero-banner">
+			<h1>Welcome to <span class="text-secondary">GS1 Canada</span></h1>
+			<div class="description">
+				<p>This is a Front End demo showcasing GS1 built by Astro.<br /></p>
+				<div class="link-container">
+					<a class="link" href="https://github.com/riforik/gs1-test/" target="_blank" aria-label="Visit this sites github repository (opens in a new tab)"><Icon name="github" size={32}/></a>&nbsp;
+					<a class="link" href="https://gs1ca.org/" target="_blank" aria-label="Visit the G S 1 Canada website (opens in a new tab)"><Icon name="external-link" size={32} is:inline={true}/></a>
+				</div>
+			</div>
+		</div>
+		<ul role="list" class="link-card-grid">
+			<Card
+				icon={{name: 'info', size: '24'}}
+				href="/about"
+				title="About Us"
+				ariaLabel="Learn more about us"
+				body="We are a Trusted Strategic Partner that inspires, leads and enables best-in-class supply chain."
+			/>
+			<Card
+				icon={{name: 'barcode', size: '24'}}
+				href="/barcodes"
+				title="Barcodes"
+				ariaLabel="Get and learn more about barcodes"
+				body="GS1 Barcodes and Global Trade Item Numbers (GTINs) are recommended by most online and national sellers"
+			/>
+			<Card
+				icon={{name: 'standards', size: '24'}}
+				href="/standards"
+				title="Standards"
+				ariaLabel="G S 1 Canada standards"
+				body="GS1 standards are the most widely used supply chain system of standards in the world."
+			/>
+			<Card
+				icon={{name: 'industries', size: '24'}}
+				href="/industries"
+				title="Industries"
+				ariaLabel="G S 1 industry coverage"
+				body="Covering foorservice, grocery, healthcare, pharmacy, and other various industry needs."
+			/>
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+		color: rgba(var(--gs1-tertiary), 100);
+	}
+	.text-secondary {
+		color: rgba(var(--gs1-secondary), 100);
+	}
+	.hero-banner {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--gs1-border), 100%);
+		background: rgba(var(--gs1-primary));
+		padding: 1.5rem;
+		border-radius: 4px;
+	}
+	.hero-banner .description {
+		text-align: center;
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--gs1-border), 50%);
+		background: rgba(var(--gs1-tertiary), 20%);
+		padding: 1rem;
+		border-radius: 4px;
+	}
+	.description strong {
+		color: rgb(var(--accent-light));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	a.link {
+		text-decoration: none;
+		line-height: 1.4;
+		color: white;
+		transition: all 0.1s ease;
+	}
+	a.link:is(:hover) {
+		color: rgba(var(--gs1-secondary), 100%);
+	}
+</style>
